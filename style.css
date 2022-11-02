@@ -1,0 +1,72 @@
+.title{
+    display:flex;
+    justify-content: flex-start;
+    margin-left: 15px;
+    padding:10px;
+}
+
+
+.btn{
+    width:100%;
+    border:solid;
+    background-color:lightblue;
+    margin-top:20px;
+    text-align: center;
+    font:bold;
+}
+
+.textbox{
+    width:100%;
+}
+
+header{
+    display:flex;
+    justify-content:center;
+    background-image:linear-gradient(navy, black, blue);
+    color:white;
+    padding:20px;
+}
+
+
+
+/* content, sidepanel, main */
+
+#content {
+    display:flex;
+    justify-content: flex-start;
+    flex-flow:row wrap;
+}
+#sidepanel {
+    width:410px;
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:10px;
+
+}
+
+#main{
+    padding-left:15px;
+    padding-right:15px;
+    flex:1;
+    padding-top:10px;
+}
+
+
+/* bottom css */
+@media  screen AND (max-width:950px) {
+    /* TODO: vertical alignment */
+    #sidepanel {
+        width:410px;
+        padding-left:15px;
+        padding-right:15px;
+        margin-bottom:10px;
+    
+    }
+    
+    #main{
+        padding-left:15px;
+        padding-right:15px;
+        flex:1;
+        padding-top:10px;
+    }   
+}
