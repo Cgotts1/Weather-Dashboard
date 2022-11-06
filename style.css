@@ -3,16 +3,26 @@
     justify-content: flex-start;
     margin-left: 15px;
     padding:10px;
+    color:white;
 }
 
 
 .btn{
     width:100%;
     border:solid;
-    background-color:lightblue;
+    background-color:rgb(190, 238, 255);
     margin-top:20px;
     text-align: center;
     font:bold;
+}
+
+.btn:hover {
+    background-color:azure;
+}
+
+.btn:active {
+    background-color:rgb(22, 46, 59);
+    color:white;
 }
 
 .textbox{
@@ -41,13 +51,14 @@ h2 {
     display:flex;
     justify-content: flex-start;
     flex-flow:row wrap;
+    background-image:linear-gradient(rgb(39, 103, 155), rgb(157, 203, 255), rgb(184, 221, 247));
 }
+
 #sidepanel {
     width:410px;
     padding-left:15px;
     padding-right:15px;
     margin-bottom:10px;
-
 }
 
 #main{

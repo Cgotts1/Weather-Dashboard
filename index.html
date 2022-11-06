@@ -16,30 +16,38 @@
       <h1>Weather Dashboard</h1>
     </header>
 
-    <div id = "content">
+    <div id="content">
       <section id="sidepanel">
+        
         <h2 class="title">Search for a City:</h2>
 
         <form>
-          
-            <input type="text" class="search-input" />
-          
+          <input type="text" class="search-input" />
           <button type="submit" class="btn">Search</button>
         </form>
+
       </section>
 
-      <main id = "main">
-        <h2 id = "currentTime">Current Time </h2>
-        <h2 class = "cityNameAndDate">City: </h2>
-        <p class = "weatherInfo">Current Weather Icon:</p>
-        <p class = "weatherInfo">Current Temperature:</p>
-        <p class = "weatherInfo">Current Humidity:</p>
-        <p class = "weatherInfo">Current Wind Speed:</p>
-        <h2 class = "fiveDayForecast">Five Day Forecast: </h2>
-        <p class = "weatherInfo">Future Weather Icons:</p>
-        <p class = "weatherInfo">Future Temperature:</p>
-        <p class = "weatherInfo">Future Humidity:</p>
-        <p class = "weatherInfo">Future Windspeed:</p>
+      <main id="main">
+
+        <h2 id="currentTime">Current Time</h2>
+        <h2 class="cityNameAndDate">City:</h2>
+
+        <div>
+          <p class="weatherInfoCurrent">Current Weather Icon:</p>
+          <p class="weatherInfoCurrent">Current Temperature:</p>
+          <p class="weatherInfoCurrent">Current Humidity:</p>
+          <p class="weatherInfoCurrent">Current Wind Speed:</p>
+        </div>
+
+        <h2 class="fiveDayForecast">5-Day Forecast:</h2>
+
+        <div id = "fiveDayWeatherCardBody">  
+          <p class="weatherInfo">Future Weather Icons:</p>
+          <p class="weatherInfo">Future Temperature:</p>
+          <p class="weatherInfo">Future Humidity:</p>
+          <p class="weatherInfo">Future Windspeed:</p>
+        </div>
       </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
