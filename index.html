@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
   </head>
   <body>
     <header>
@@ -22,16 +22,27 @@
 
         <form>
           
-            <input type="text" class="textbox" />
+            <input type="text" class="search-input" />
           
           <button type="submit" class="btn">Search</button>
         </form>
       </section>
 
       <main id = "main">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores natus saepe voluptas architecto possimus provident atque dicta nihil nemo corrupti incidunt eos rem nostrum minima ad ullam voluptatem, consectetur a?
+        <h2 id = "currentTime">Current Time </h2>
+        <h2 class = "cityNameAndDate">City: </h2>
+        <p class = "weatherInfo">Current Weather Icon:</p>
+        <p class = "weatherInfo">Current Temperature:</p>
+        <p class = "weatherInfo">Current Humidity:</p>
+        <p class = "weatherInfo">Current Wind Speed:</p>
+        <h2 class = "fiveDayForecast">Five Day Forecast: </h2>
+        <p class = "weatherInfo">Future Weather Icons:</p>
+        <p class = "weatherInfo">Future Temperature:</p>
+        <p class = "weatherInfo">Future Humidity:</p>
+        <p class = "weatherInfo">Future Windspeed:</p>
       </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
