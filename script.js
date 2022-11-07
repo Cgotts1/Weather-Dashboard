@@ -47,7 +47,7 @@ function fetchWeather() {
 // Function for showing weather data
 function showWeather(response) {
   console.log(response);
-  let row = document.querySelector(".weather.row");
+  let row = document.querySelector(".weather");
   // row.innerhtml =  ' ';
   row.innerhtml = response.list.map(city =>{
     return '<p>Day</p>';
