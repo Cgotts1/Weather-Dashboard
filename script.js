@@ -21,14 +21,42 @@ $(document).ready(function(){
     event.preventDefault();
     var cityInput = $("input[name=recentCities]").val();
     $("ol").append("<li>" + cityInput + "</li>");
-    cityInput.innerHTML = localStorage.getItem("value");      // Doesn't seem to do anything
-    localStorage.setItem("value", cityInput.value)            // Need to change city input in order to save to local storage
+
+    //Local storage
+   
+    // $('#recentCities').html("input[name=recentCities]");
+    // localStorage.cityInput = $('#recentCities').html();
+    // $('#recentCities').html(localStorage.cityInput);
+
   });
 });
 
 
 
+
+
+// Another fetch code, this one doesn't pull back any api data
+
+
+// localStorage.setItem("value", cityInput.value)            // Need to change city input in order to save to local storage
+    // cityInput.innerHTML = localStorage.getItem("value");      // Doesn't seem to do anything
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Need function to fetch weather data when button is clicked
+
 btn.addEventListener("click", fetchWeather());
 
 function fetchWeather() {
@@ -45,9 +73,10 @@ function fetchWeather() {
 
 
 // Function for showing weather data
+
 function showWeather(response) {
   console.log(response);
-  let row = document.querySelector(".weather");
+  let row = document.querySelector(".card-body");
   // row.innerhtml =  ' ';
   row.innerhtml = response.list.map(city =>{
     return '<p>Day</p>';
@@ -55,7 +84,7 @@ function showWeather(response) {
 
   //html
   let html = `
-<div id = "fiveDayWeatherCardBody" class = "weather row gx-2">  
+<div id = "fiveDayWeatherCardBody" class = "card-body">  
           <p class="weatherInfo">Future Weather Icons:</p>
           <p class="weatherInfo">Future Temperature:</p>
           <p class="weatherInfo">Future Humidity:</p>
@@ -87,9 +116,21 @@ html
 
 
 
+// Another fetch code, this one doesn't pull back any api data
 
+// fetch('https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec')
+// .then(res => {
+//   console.log(res);
+//   return res.json();
+// })
+// .then(data =>{
+//   data.forEach(city =>{
+//     const markup = `<li>${city.name} </li>` ;
 
-
+//     document.querySelector('ol').insertAdjacentHTML('beforeend', markup);
+// });
+// })
+// .catch(error => console.log(error));
 
 
 
