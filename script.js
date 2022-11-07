@@ -5,10 +5,7 @@ var option = document.querySelector("#format-input");
 var weatherInfo = document.querySelector(".main");
 var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
-
-
-
-
+// let url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec"
 
 
 //Sets the date at the top of the page upon loading of the page
@@ -22,23 +19,52 @@ setInterval(function () {
 
 $(document).ready(function(){
   $("#button").click(function(){
-    event.preventDefault();
+    Event.preventDefault();
     var cityInput = $("input[name=recentCities]").val();
     $("ol").append("<li>" + cityInput + "</li>");
+    cityInput.innerHTML = localStorage.getItem("value");      // Doesn't seem to do anything
+    localStorage.setItem("value", cityInput.value)            // Need to change city input in order to save to local storage
   });
 });
 
 
 
+// Need function to fetch weather data when button is clicked
+btn.addEventListener("click", fetchWeather());
+
+function fetchWeather() {
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) throw new Error(response.statusText);
+      return response.json();
+    })
+    .then((data) => {
+      showWeather(data);
+    })
+    .catch(console.err);
+}
 
 
+// Function for showing weather data
+function showWeather(response) {
+  console.log(response);
+  let row = document.querySelector(".weather.row");
+  // row.innerhtml =  ' ';
+  row.innerhtml = response.list.map(city =>{
+    return '<p>Day</p>';
+  }).join(' ');
 
-
-
-
-
-
-
+  //html
+  let html = `
+<div id = "fiveDayWeatherCardBody" class = "weather row gx-2">  
+          <p class="weatherInfo">Future Weather Icons:</p>
+          <p class="weatherInfo">Future Temperature:</p>
+          <p class="weatherInfo">Future Humidity:</p>
+          <p class="weatherInfo">Future Windspeed:</p>
+        </div>
+`;
+html
+}
 
 
 
@@ -178,143 +204,6 @@ $(document).ready(function(){
 // document.addEventListener('DOMContentLoaded', ()=>{
 //   document.querySelector(".btn").addEventListener('click', addCity)
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Sets the date at the top of the page upon loading of the page
-setInterval(function () {
-  var time = moment().format("MMMM Do YYYY, h:mm:ss a");
-  displayCurrentTime.textContent = time;
-}, 1000);
-
-
-
-// Need function to fetch weather data when button is clicked
-
-btn.addEventListener("click", fetchWeather());
-
-function fetchWeather() {
-  fetch(url)
-    .then((resp) => {
-      if (!resp.ok) throw new Error(resp.statusText);
-      return resp.json();
-    })
-    .then((data) => {
-      showWeather(data);
-    })
-    .catch(console.err);
-}
-
-
-
-
-// Function for showing weather data
-
-function showWeather(resp) {
-  console.log(resp);
-  let row = document.querySelector(".weather.row");
-  // row.innerhtml =  ' ';
-  row.innerhtml = resp.list.map(day =>{
-    return '<p>Day</p>';
-  }).join(' ');
-
-  //html
-  let html = `
-<div id = "fiveDayWeatherCardBody" class = "weather row gx-2">  
-          <p class="weatherInfo">Future Weather Icoyuyuns:</p>
-          <p class="weatherInfo">Future Temperature:</p>
-          <p class="weatherInfo">Future Humidity:</p>
-          <p class="weatherInfo">Future Windspeed:</p>
-        </div>
-`;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
