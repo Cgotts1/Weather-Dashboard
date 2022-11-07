@@ -5,7 +5,7 @@ var option = document.querySelector("#format-input");
 var weatherInfo = document.querySelector(".main");
 var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
-// let url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec"
+// let url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
 
 
 //Sets the date at the top of the page upon loading of the page
@@ -16,10 +16,9 @@ setInterval(function () {
 
 
 // Appends user city searches to page
-
 $(document).ready(function(){
   $("#button").click(function(){
-    Event.preventDefault();
+    event.preventDefault();
     var cityInput = $("input[name=recentCities]").val();
     $("ol").append("<li>" + cityInput + "</li>");
     cityInput.innerHTML = localStorage.getItem("value");      // Doesn't seem to do anything

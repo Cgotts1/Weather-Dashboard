@@ -51,6 +51,19 @@ ol{
     padding:10px;
 }
 
+li:hover{
+    cursor:pointer;
+    border:solid 2px;
+    border-radius:3px;
+    padding:5px;
+    background-color: rgb(179, 218, 255);
+}
+
+li:active{
+    color:white;
+    background-color: rgb(26, 42, 63);
+}
+
 /* li:hover{
     cursor:pointer;
     
