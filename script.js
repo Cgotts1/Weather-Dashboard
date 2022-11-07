@@ -24,9 +24,8 @@ $(document).ready(function(){
 
     //Local storage
    
-    // $('#recentCities').html("input[name=recentCities]");
-    // localStorage.cityInput = $('#recentCities').html();
-    // $('#recentCities').html(localStorage.cityInput);
+    localStorage.setItem(cityInput, 'val')
+    localStorage.getItem(cityInput)
 
   });
 });
