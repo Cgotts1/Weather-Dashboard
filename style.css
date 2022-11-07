@@ -43,6 +43,19 @@ h2 {
     color:rgb(1, 41, 87);
 }
 
+ol{
+    font-weight: bold;
+    font-style:italic;
+    font-size:20px;
+    color: rgb(9, 17, 27);
+    padding:10px;
+}
+
+/* li:hover{
+    cursor:pointer;
+    
+} */
+
 
 
 /* content, sidepanel, main */
