@@ -22,11 +22,9 @@ $(document).ready(function(){
     var cityInput = $("input[name=recentCities]").val();
     $("ol").append("<li>" + cityInput + "</li>");
 
-    //Local storage
-   
-    localStorage.setItem(cityInput, 'val')
+    //Local storage 
+    localStorage.setItem(cityInput, cityInput)
     localStorage.getItem(cityInput)
-
   });
 });
 
