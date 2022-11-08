@@ -3,9 +3,9 @@ var btn = document.querySelector(".btn");
 var searchInput = document.querySelector("#search-input");
 var option = document.querySelector("#format-input");
 var weatherInfo = document.querySelector(".main");
-var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
-let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
-// let url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
+// var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
+// let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
+let url = "https://api.openweathermap.org/data/2.5/forecast?q=boston&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
 
 
 //Sets the date at the top of the page upon loading of the page
@@ -20,23 +20,123 @@ $(document).ready(function(){
   $("#button").click(function(){
     event.preventDefault();
     var cityInput = $("input[name=recentCities]").val();
-    $("ol").append("<li>" + cityInput + "</li>");
+    $("ol").append("<li>" + cityInput + "</li>");         //$("button#recentCities").append("<li>" + cityInput + "</li>");   button route
 
-    //Local storage 
+    // Local storage 
     localStorage.setItem(cityInput, cityInput)
     localStorage.getItem(cityInput)
+    var userCities = localStorage.getItem(cityInput)
+    userCities
   });
 });
 
 
 
+let weather = {
+  "apiKey": "e2529e3d1d19d0acec4d2f3fc131a3ec",
+  fetchWeather: function (city){
+      fetch(
+          "https://api.openweathermap.org/data/2.5/forecast?q="
+       + city 
+       + "&units=metric&appid=" 
+       + this.apiKey)
+      .then((response) => response.json())
+      .then((data) => this.displayWeather(data));
+  },
+
+  displayWeather: function(data){                                                      
+    const {name} = data;                                                            
+    // const {main} = data;
+    // const {weather} = data;
+
+    console.log(name)
+
+  },
+
+search: function(){
+  this.fetchWeather(document.querySelector(".search-input #button").value);
+  
+}
+
+};
+
+document.querySelector(".search-input #button").addEventListener("click", function (){
+  document.querySelector(".search-input #button").value
+  weather.search();
+})
 
 
-// Another fetch code, this one doesn't pull back any api data
 
 
-// localStorage.setItem("value", cityInput.value)            // Need to change city input in order to save to local storage
-    // cityInput.innerHTML = localStorage.getItem("value");      // Doesn't seem to do anything
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,42 +154,41 @@ $(document).ready(function(){
 
 // Need function to fetch weather data when button is clicked
 
-btn.addEventListener("click", fetchWeather());
+// btn.addEventListener("click", fetchWeather());
 
-function fetchWeather() {
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) throw new Error(response.statusText);
-      return response.json();
-    })
-    .then((data) => {
-      showWeather(data);
-    })
-    .catch(console.err);
-}
+// function fetchWeather() {
+//   fetch(url)
+//     .then((response) => {
+//       if (!response.ok) throw new Error(response.statusText);
+//       return response.json();
+//     })
+//     .then((data) => {
+//       showWeather(data);
+//     })
+//     .catch(console.err);
+// }
 
 
 // Function for showing weather data
 
-function showWeather(response) {
-  console.log(response);
-  let row = document.querySelector(".card-body");
-  // row.innerhtml =  ' ';
-  row.innerhtml = response.list.map(city =>{
-    return '<p>Day</p>';
-  }).join(' ');
+// function showWeather(response) {
+//   console.log(response);
+//   let row = document.querySelector(".card-body");
+  // row.innerhtml =  ' '; 
+  // row.innerhtml = response.list.map(city =>{
+  //   return '<p>Day</p>';
+//   }).join(' ');
 
-  //html
-  let html = `
-<div id = "fiveDayWeatherCardBody" class = "card-body">  
-          <p class="weatherInfo">Future Weather Icons:</p>
-          <p class="weatherInfo">Future Temperature:</p>
-          <p class="weatherInfo">Future Humidity:</p>
-          <p class="weatherInfo">Future Windspeed:</p>
-        </div>
-`;
-html
-}
+//   let html = `
+// <div id = "fiveDayWeatherCardBody" class = "card-body">  
+//           <p class="weatherInfo">Future Weather Icons:</p>
+//           <p class="weatherInfo">Future Temperature:</p>
+//           <p class="weatherInfo">Future Humidity:</p>
+//           <p class="weatherInfo">Future Windspeed:</p>
+//         </div>
+// `;
+// html
+// }
 
 
 
