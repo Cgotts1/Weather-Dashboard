@@ -8,15 +8,6 @@ var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 let url = "https://api.openweathermap.org/data/2.5/forecast?q=boston&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
 let updateCity = document.querySelector(".city")
 
-
-
-
-
-
-
-
-
-
 //Sets the date at the top of the page upon loading of the page
 setInterval(function () {
   var time = moment().format("MMMM Do YYYY, h:mm:ss a");
@@ -64,22 +55,23 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&units=
 
 function displayWeather(result){
   const {name} = result; 
-  const {icon} = result.weather; 
+  const {icon} = result.weather[0]; 
   const {temp} = result.main;                                                            
   const {humidity} = result.main;
   const {speed} = result.wind;
-  const {base} = result;
 
-
-    console.log(result, name, icon, temp, main, humidity, speed, base)
+    console.log(result, name, icon, temp, main, humidity, speed)
     document.querySelector(".city").innerText = "City: " + name;
-    document.querySelector(".weatherInfoCurrentIcon").src= "https://openweathermap.org/img/wn/" + icon + ".png";
+    document.querySelector(".weatherInfoCurrentIcon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
     // document.querySelector(".weatherInfoCurrentIcon").innerText = "Current Icon: " + icon;
 
     document.querySelector(".weatherInfoCurrentTemperature").innerText = "Current Temperature: " + temp + "°Fahrenheit";
     document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Humidity: " + humidity + "%";
     document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed + " mph";
-    // document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Wind Speed: " + base;
+
+    // document.querySelector(".mainPic").innerText = 
+
+    
 
 
 
@@ -90,139 +82,10 @@ function displayWeather(result){
 
 
 
-
-
-
-
-
-
-
-// let weather = {
-//   "apiKey": "e2529e3d1d19d0acec4d2f3fc131a3ec",
-//   fetchWeather: function (searchInput){
-//       fetch(
-//           "https://api.openweathermap.org/data/2.5/forecast?q="
-//        + searchInput 
-//        + "&units=metric&appid=" 
-//        + this.apiKey)
-//       .then((response) => response.json())
-//       .then((data) => this.displayWeather(data));
-//   },
-
-  // displayWeather: function(data){                                                      
-  //   const {city} = data;                                                            
-    // const {main} = data;
-    // const {weather} = data;
-
-//     console.log(city)
-//     document.querySelector(".city").innerText = "Weather in " + city;
-
-//   },
-
-// search: function(){
-//   this.fetchWeather(document.querySelector(".search-input #button").value);
-  
-// }
-
-// };
-
-// document.querySelector(".search-input #button").addEventListener("click", function (){
-//   document.querySelector(".search-input #button").value
-//   weather.search();
-// })
-
-
-
-
-
-
-
 // `https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Need function to fetch weather data when button is clicked
-
-// btn.addEventListener("click", fetchWeather());
-
-// function fetchWeather() {
-//   fetch(url)
-//     .then((response) => {
-//       if (!response.ok) throw new Error(response.statusText);
-//       return response.json();
-//     })
-//     .then((data) => {
-//       showWeather(data);
-//     })
-//     .catch(console.err);
-// }
-
-
-// Function for showing weather data
-
-// function showWeather(response) {
-//   console.log(response);
-//   let row = document.querySelector(".card-body");
-  // row.innerhtml =  ' '; 
-  // row.innerhtml = response.list.map(city =>{
-  //   return '<p>Day</p>';
-//   }).join(' ');
-
-//   let html = `
-// <div id = "fiveDayWeatherCardBody" class = "card-body">  
-//           <p class="weatherInfo">Future Weather Icons:</p>
-//           <p class="weatherInfo">Future Temperature:</p>
-//           <p class="weatherInfo">Future Humidity:</p>
-//           <p class="weatherInfo">Future Windspeed:</p>
-//         </div>
-// `;
-// html
-// }
-
-
-
-
-
-
-//api.openweathermap.org/data/2.5/forecast?q=los%20angeles&appid=e2529e3d1d19d0acec4d2f3fc131a3ec
 
 /* moment(data.list[i].dt_txt, 'YYYY-MM-DD HH:mm:ss').format(<insert desired format here>)
 

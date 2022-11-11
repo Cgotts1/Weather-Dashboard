@@ -64,6 +64,14 @@ li:active{
     background-color: rgb(26, 42, 63);
 }
 
+
+p{
+    /* font-family: 'Sawarabi Mincho', serif; */
+    /* font-weight: bold;  */
+    font-size: 24px;
+    color:rgb(0, 0, 0);
+}
+
 /* li:hover{
     cursor:pointer;
     
