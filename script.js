@@ -54,7 +54,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&units=imperial&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
   .then((response) => response.json())
   // .then(result => console.log(result))
   .then(result => displayWeather(result))
@@ -64,17 +64,21 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=
 
 function displayWeather(result){
   const {name} = result; 
+  const {icon} = result.weather; 
   const {temp} = result.main;                                                            
   const {humidity} = result.main;
   const {speed} = result.wind;
   const {base} = result;
 
 
-    console.log(result, name, temp, main, humidity, speed, base)
+    console.log(result, name, icon, temp, main, humidity, speed, base)
     document.querySelector(".city").innerText = "City: " + name;
-    document.querySelector(".weatherInfoCurrentTemperature").innerText = "Current Temperature: " + temp;
-    document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Humidity: " + humidity;
-    document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed;
+    document.querySelector(".weatherInfoCurrentIcon").src= "https://openweathermap.org/img/wn/" + icon + ".png";
+    // document.querySelector(".weatherInfoCurrentIcon").innerText = "Current Icon: " + icon;
+
+    document.querySelector(".weatherInfoCurrentTemperature").innerText = "Current Temperature: " + temp + "°Fahrenheit";
+    document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Humidity: " + humidity + "%";
+    document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed + " mph";
     // document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Wind Speed: " + base;
 
 
