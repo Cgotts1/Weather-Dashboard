@@ -1,7 +1,7 @@
 var displayCurrentTime = document.querySelector("#currentTime"); // querySelector for displaying time at top of page
 var btn = document.querySelector(".btn");
 var searchInput = document.querySelector("#search-input");
-var searchNewCityApi = document.querySelector("#text");
+var searchNewCityApi = document.querySelector("#input-field");
 var weatherInfo = document.querySelector(".main");
 var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 // let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
@@ -38,7 +38,8 @@ btn.addEventListener("click", fetchWeather);
 
 function fetchWeather(){
 event.preventDefault();
-let citySearchApi = searchNewCityApi
+let citySearchApi = searchNewCityApi.value
+console.log(citySearchApi);
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
