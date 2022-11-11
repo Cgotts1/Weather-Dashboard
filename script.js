@@ -46,9 +46,10 @@ var requestOptions = {
 };
 
 fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
-  .then(response => response.text())
+  .then((response) => response.json())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+
   
 }
 
