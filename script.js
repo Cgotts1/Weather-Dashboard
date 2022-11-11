@@ -6,6 +6,15 @@ var weatherInfo = document.querySelector(".main");
 var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 // let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
 let url = "https://api.openweathermap.org/data/2.5/forecast?q=boston&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
+let updateCity = document.querySelector(".city")
+
+
+
+
+
+
+
+
 
 
 //Sets the date at the top of the page upon loading of the page
@@ -31,7 +40,7 @@ $(document).ready(function(){
 });
 
 
-
+// Button to fecth weather
 
 btn.addEventListener("click", fetchWeather);
 
@@ -45,22 +54,22 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
   .then((response) => response.json())
-  .then(result => console.log(result))
+  // .then(result => console.log(result))
+  .then(result => displayWeather(result))
   .catch(error => console.log('error', error));
-
-  
 }
 
 
 function displayWeather(result){
-  const {city} = result;                                                            
-  // const {main} = data;
+  const {name} = result;                                                            
+  const {weather} = result;
   // const {weather} = data;
 
-//     console.log(city)
-    document.querySelector(".city").innerText = "Weather in " + city;
+    console.log(result, name, weather)
+    document.querySelector(".city").innerText = "Weather in " + name;
+    document.querySelector(".weatherInfo").innerText = "Icon " + weather;
 }
 
 
@@ -115,7 +124,7 @@ function displayWeather(result){
 
 
 
-
+// `https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`
 
 
 
