@@ -65,11 +65,14 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=
 function displayWeather(result){
   const {name} = result;                                                            
   const {weather} = result;
-  // const {weather} = data;
+  const {wind} = result.wind.speed;
 
-    console.log(result, name, weather)
-    document.querySelector(".city").innerText = "Weather in " + name;
+    console.log(result, name, weather, main)
+    document.querySelector(".city").innerText = "City: " + name;
     document.querySelector(".weatherInfo").innerText = "Icon " + weather;
+    document.querySelector(".weatherInfoCurrentWind").innerText = "Current Wind Speed" + wind;
+
+
 }
 
 
