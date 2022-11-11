@@ -102,7 +102,7 @@ li:active{
 
 
 /* bottom css */
-@media  screen AND (max-width:950px) {
+@media  screen AND (max-width:950px) { 
     /* TODO: vertical alignment */
     #sidepanel {
         width:410px;

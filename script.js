@@ -1,9 +1,8 @@
 var displayCurrentTime = document.querySelector("#currentTime"); // querySelector for displaying time at top of page
 var btn = document.querySelector(".btn");
 var searchInput = document.querySelector("#search-input");
-var option = document.querySelector("#format-input");
 var weatherInfo = document.querySelector(".main");
-// var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
+var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 // let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
 let url = "https://api.openweathermap.org/data/2.5/forecast?q=boston&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
 
@@ -32,43 +31,34 @@ $(document).ready(function(){
 
 
 
-let weather = {
-  "apiKey": "e2529e3d1d19d0acec4d2f3fc131a3ec",
-  fetchWeather: function (city){
-      fetch(
-          "https://api.openweathermap.org/data/2.5/forecast?q="
-       + city 
-       + "&units=metric&appid=" 
-       + this.apiKey)
-      .then((response) => response.json())
-      .then((data) => this.displayWeather(data));
-  },
 
-  displayWeather: function(data){                                                      
-    const {name} = data;                                                            
-    // const {main} = data;
-    // const {weather} = data;
+btn.addEventListener("click", fetchWeather);
 
-    console.log(name)
 
-  },
+function fetchWeather(){
+event.preventDefault();
+let citySearchApi = searchInput.value
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
-search: function(){
-  this.fetchWeather(document.querySelector(".search-input #button").value);
+fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
   
 }
 
-};
 
-document.querySelector(".search-input #button").addEventListener("click", function (){
-  document.querySelector(".search-input #button").value
-  weather.search();
-})
+function displayWeather(data){
+  const {city} = data;                                                            
+  // const {main} = data;
+  // const {weather} = data;
 
-
-
-
-
+//     console.log(city)
+    document.querySelector(".city").innerText = "Weather in " + city;
+}
 
 
 
@@ -82,27 +72,39 @@ document.querySelector(".search-input #button").addEventListener("click", functi
 
 
 
+// let weather = {
+//   "apiKey": "e2529e3d1d19d0acec4d2f3fc131a3ec",
+//   fetchWeather: function (searchInput){
+//       fetch(
+//           "https://api.openweathermap.org/data/2.5/forecast?q="
+//        + searchInput 
+//        + "&units=metric&appid=" 
+//        + this.apiKey)
+//       .then((response) => response.json())
+//       .then((data) => this.displayWeather(data));
+//   },
 
+  // displayWeather: function(data){                                                      
+  //   const {city} = data;                                                            
+    // const {main} = data;
+    // const {weather} = data;
 
+//     console.log(city)
+//     document.querySelector(".city").innerText = "Weather in " + city;
 
+//   },
 
+// search: function(){
+//   this.fetchWeather(document.querySelector(".search-input #button").value);
+  
+// }
 
+// };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// document.querySelector(".search-input #button").addEventListener("click", function (){
+//   document.querySelector(".search-input #button").value
+//   weather.search();
+// })
 
 
 
