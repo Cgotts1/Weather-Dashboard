@@ -43,6 +43,17 @@ h2 {
     color:rgb(1, 41, 87);
 }
 
+h2.city{
+    border-bottom: solid black;
+    box-shadow: 10px 5px 5px 0px rgb(24, 0, 95);
+
+}
+
+h2.fiveDayForecast{
+    border-bottom: solid black;
+    box-shadow: 10px 5px 5px 0px rgb(24, 0, 95);
+}
+
 ol{
     font-weight: bold;
     font-style:italic;
