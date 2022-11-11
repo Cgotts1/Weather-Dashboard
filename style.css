@@ -100,6 +100,10 @@ li:active{
     color:white;
 }
 
+footer{
+    background-image:linear-gradient(rgb(39, 103, 155), rgb(157, 203, 255), rgb(184, 221, 247));
+}
+
 
 /* bottom css */
 @media  screen AND (max-width:950px) { 
