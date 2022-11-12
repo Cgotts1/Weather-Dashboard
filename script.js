@@ -12,7 +12,6 @@ setInterval(function () {
   displayCurrentTime.textContent = time;
 }, 1000);
 
-
 // Appends user city searches to page
 $(document).ready(function(){
   $("#button").click(function(){
@@ -28,45 +27,8 @@ $(document).ready(function(){
   });
 });
 
-
-
-// Hour 10
-// const buttonTen = document.querySelector(".sb10");
-// const textareaTen = document.querySelector(".t10");
-// textareaTen.innerHTML = localStorage.getItem("value10");
-// buttonTen.addEventListener("click", display10);
-
-// function display10() {
-//   localStorage.setItem("value10", textareaTen.value);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Button to fetch weather
-
 btn.addEventListener("click", fetchWeather);
-
 
 function fetchWeather(){
 event.preventDefault();
@@ -84,7 +46,6 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&units=
   .catch(error => console.log('error', error));
 }
 
-
 function displayWeather(result){
   const {name} = result; 
   const {icon} = result.weather[0]; 
@@ -95,54 +56,16 @@ function displayWeather(result){
     console.log(result, name, icon, temp, main, humidity, speed)
     document.querySelector(".city").innerText = "City: " + name;
     document.querySelector(".weatherInfoCurrentIcon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-    // document.querySelector(".weatherInfoCurrentIcon").innerText = "Current Icon: " + icon;
-
     document.querySelector(".weatherInfoCurrentTemperature").innerText = "Current Temperature: " + temp + "°Fahrenheit";
     document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Humidity: " + humidity + "%";
     document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed + " mph";
-
-    // document.querySelector(".mainPic").innerText = 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Code for 5 day weather forecast
 
 
-
+// Second btn listener for fetching five day forecast
 btn.addEventListener("click", fetchFiveDayForecast);
-
-
 
 function fetchFiveDayForecast(){
 
@@ -163,8 +86,7 @@ function fetchFiveDayForecast(){
     }
 
     fetchWeatherAgain()
-    
-    
+       
     function displayFiveWeather(result){
       const {dt_txt} = result.list[22].clouds; 
       const {icon} = result.list[22].weather[0]; 
@@ -179,30 +101,9 @@ function fetchFiveDayForecast(){
         document.querySelector(".weatherInfo1Humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".weatherInfo1Windspeed").innerText = "Wind Speed: " + speed + " mph";
     }
-
-
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // `https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`
-
-
-
 
 /* moment(data.list[i].dt_txt, 'YYYY-MM-DD HH:mm:ss').format(<insert desired format here>)
 
