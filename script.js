@@ -167,19 +167,17 @@ function fetchFiveDayForecast(){
     
     function displayFiveWeather(result){
       const {population} = result.city; 
-      // const {icon} = result.weather[0]; 
-      // const {temp} = result.main;                                                            
-      // const {humidity} = result.main;
-      // const {speed} = result.wind;
+      const {icon} = result.list[0].weather[0]; 
+      const {temp} = result.list[0].main;                                                            
+      const {humidity} = result.list[0].main;
+      const {speed} = result.list[0].wind;
     
-        console.log(result, population)
+        console.log(result, population, temp, humidity, speed, icon)
         document.querySelector(".weatherInfo1Date").innerText = "Population: " + population;
-        // document.querySelector(".weatherInfoCurrentIcon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-        // document.querySelector(".weatherInfoCurrentIcon").innerText = "Current Icon: " + icon;
-    
-        // document.querySelector(".weatherInfoCurrentTemperature").innerText = "Current Temperature: " + temp + "°Fahrenheit";
-        // document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Humidity: " + humidity + "%";
-        // document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed + " mph";
+        document.querySelector(".weatherInfo1Icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        document.querySelector(".weatherInfo1Temp").innerText = "Temperature: " + temp + "°Fahrenheit";
+        document.querySelector(".weatherInfo1Humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".weatherInfo1Windspeed").innerText = "Wind Speed: " + speed + " mph";
     
         // document.querySelector(".mainPic").innerText = 
     }
