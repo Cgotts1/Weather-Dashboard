@@ -14,7 +14,6 @@ Link to application: https://cgotts1.github.io/Weather-Dashboard/
 https://www.youtube.com/watch?v=nGVoHEZojiQ
 
 
-
 ## License
 
 N/A
