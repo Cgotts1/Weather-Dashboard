@@ -204,3 +204,23 @@ footer{
         padding-top:10px;
     }   
 }
+
+
+
+
+
+
+
+
+
+@media  screen AND (max-width:397px) { 
+    .card-body:hover{
+        cursor: zoom-in;
+        border-top: 5px;
+        -webkit-filter: brightness(200%); 
+    border:none;
+    zoom: 120%;
+  transform: scale(1.1);
+  opacity:1;
+    }
+}
