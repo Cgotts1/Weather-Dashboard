@@ -5,8 +5,8 @@ This project is titled "Weather Dashboard" and is an application designed to dis
 ## Usage
 
 Link to application: https://cgotts1.github.io/Weather-Dashboard/
-![Weather Dashboard](/images/wd1.jpg)
-![Weather Dashboard](/images/wd2.jpg)
+![Weather Dashboard](/images/wd1.png)
+![Weather Dashboard](/images/wd2.png)
 ![Weather Dashboard](/images/wd3.jpg)
 
 ## Credits
