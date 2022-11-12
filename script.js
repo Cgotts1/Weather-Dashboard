@@ -5,7 +5,7 @@ var searchNewCityApi = document.querySelector("#input-field");
 var weatherInfo = document.querySelector(".main");
 var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 // let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
-let url = "https://api.openweathermap.org/data/2.5/forecast?q=boston&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
+let url = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
 let updateCity = document.querySelector(".city")
 
 //Sets the date at the top of the page upon loading of the page
@@ -70,12 +70,97 @@ function displayWeather(result){
     document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed + " mph";
 
     // document.querySelector(".mainPic").innerText = 
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Code for 5 day weather forecast
+
+
+
+// btn.addEventListener("click", fetchFiveDayForecastWeather);
+
+function fetchFiveDayForecast(){
+
+  function fetchWeatherAgain(){
+    event.preventDefault();
+    let citySearchFiveApi = searchNewCityApi.value
+    console.log(citySearchFiveApi);
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
     
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${citySearchFiveApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
+      .then((response) => response.json())
+      // .then(result => console.log(result))
+      .then(result => displayFiveWeather(result))
+      .catch(error => console.log('error', error));
+    }
+    
+    
+    function displayFiveWeather(result){
+      const {name} = result; 
+      const {icon} = result.weather[0]; 
+      const {temp} = result.main;                                                            
+      const {humidity} = result.main;
+      const {speed} = result.wind;
+    
+        console.log(result, name, icon, temp, main, humidity, speed)
+        document.querySelector(".city").innerText = "City: " + name;
+        document.querySelector(".weatherInfoCurrentIcon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        // document.querySelector(".weatherInfoCurrentIcon").innerText = "Current Icon: " + icon;
+    
+        document.querySelector(".weatherInfoCurrentTemperature").innerText = "Current Temperature: " + temp + "°Fahrenheit";
+        document.querySelector(".weatherInfoCurrentHumidity").innerText = "Current Humidity: " + humidity + "%";
+        document.querySelector(".weatherInfoCurrentWindSpeed").innerText = "Current Wind Speed: " + speed + " mph";
+    
+        // document.querySelector(".mainPic").innerText = 
+    }
+
 
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
