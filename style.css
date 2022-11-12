@@ -1,5 +1,6 @@
 body{
-    background-image:linear-gradient(rgb(28, 47, 61), rgb(86, 134, 189), rgb(85, 121, 148));
+    /* background-image:linear-gradient( rgb(3, 37, 101), rgb(32, 64, 97), rgb(40, 70, 93)); */
+    background-image:linear-gradient(.25turn, rgb(208, 209, 210), 10%, rgb(1, 40, 119), rgb(162, 183, 190));
 }
 
 .title{
@@ -178,7 +179,7 @@ p{
 
 footer{
     height:7vw;
-    margin:0;
+    margin-top:-5px;
     /* background-image:linear-gradient(rgb(28, 47, 61), rgb(73, 136, 208), rgb(106, 122, 134)); */
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3jKq77P6_J6K-MrzfNvwu3zfzaALuE79elA&usqp=CAU');
     background-size: contain;

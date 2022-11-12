@@ -23,15 +23,50 @@ $(document).ready(function(){
     $("ol").append("<li>" + cityInput + "</li>");         
 
     // Local storage 
-    localStorage.setItem(cityInput, cityInput)
+    localStorage.setItem(cityInput, "selectedCity")
     localStorage.getItem(cityInput)
-    // var userCities = localStorage.getItem(cityInput)      //probably dont need these two lines
-    // userCities
+    var userCities = localStorage.getItem("selectedCity")      //probably dont need these two lines
+    userCities
+    
   });
 });
 
+localStorage.getItem("selectedCity")
 
-// Button to fecth weather
+// Hour 10
+// const buttonTen = document.querySelector(".sb10");
+// const textareaTen = document.querySelector(".t10");
+// textareaTen.innerHTML = localStorage.getItem("value10");
+// buttonTen.addEventListener("click", display10);
+
+// function display10() {
+//   localStorage.setItem("value10", textareaTen.value);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Button to fetch weather
 
 btn.addEventListener("click", fetchWeather);
 
@@ -121,7 +156,7 @@ function fetchFiveDayForecast(){
       redirect: 'follow'
     };
     
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${citySearchFiveApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${citySearchFiveApi}&units=imperial&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`, requestOptions)
       .then((response) => response.json())
       // .then(result => console.log(result))
       .then(result => displayFiveWeather(result))
