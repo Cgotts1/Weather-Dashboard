@@ -37,9 +37,7 @@ $(document).ready(function(){
 
 // function displayPastCitySearches(){
 //  var recentCities = localStorage.getItem("selectedCity")
-//  if(!recentCities){
-//   recentCities = "[]";
-//  }
+//  recentCities = "[]";
 //  recentCities = JSON.parse(recentCities)
 //  for(var i = 0; i < recentCities; i++){}
   
@@ -88,7 +86,7 @@ function displayWeather(result){
 
 
 
-//Code for 5 day weather forecast
+// Code for 5 day weather forecast
 
 
 // DAY ONE
@@ -114,7 +112,7 @@ function fetchFiveDayForecast(){
 
     fetchWeatherAgain()    // Fetches the weather again for the five day forecast          
        
-    function displayFiveWeather(result){              //
+    function displayFiveWeather(result){              
       const {dt} = result.list[0].clouds; 
       const {icon} = result.list[0].weather[0]; 
       const {temp} = result.list[0].main;                                                            
@@ -122,7 +120,7 @@ function fetchFiveDayForecast(){
       const {speed} = result.list[0].wind;
     
         console.log(result, dt, temp, humidity, speed, icon)
-        document.querySelector(".weatherInfo1Date").innerText = "Date: " + dt;
+        document.querySelector(".weatherInfo1Date").innerText = "Date: " + moment(dt).format('dddd');
         document.querySelector(".weatherInfo1Icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
         document.querySelector(".weatherInfo1Temp").innerText = "Temperature: " + temp + "°Fahrenheit";
         document.querySelector(".weatherInfo1Humidity").innerText = "Humidity: " + humidity + "%";
@@ -159,7 +157,7 @@ function fetchFiveDayForecast2(){
 
     fetchWeatherAgain2()    // Fetches the weather again for the five day forecast          
        
-    function displayFiveWeather2(result){              //
+    function displayFiveWeather2(result){              
       const {dt} = result.list[8].clouds; 
       const {icon} = result.list[8].weather[0]; 
       const {temp} = result.list[8].main;                                                            
@@ -167,7 +165,7 @@ function fetchFiveDayForecast2(){
       const {speed} = result.list[8].wind;
     
         console.log(result, dt, temp, humidity, speed, icon)
-        document.querySelector(".weatherInfo2Date").innerText = "Date: " + dt;
+        document.querySelector(".weatherInfo2Date").innerText = "Date: " + moment(dt).format('dddd');
         document.querySelector(".weatherInfo2Icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
         document.querySelector(".weatherInfo2Temp").innerText = "Temperature: " + temp + "°Fahrenheit";
         document.querySelector(".weatherInfo2Humidity").innerText = "Humidity: " + humidity + "%";
@@ -202,7 +200,7 @@ function fetchFiveDayForecast3(){
 
     fetchWeatherAgain3()    // Fetches the weather again for the five day forecast          
        
-    function displayFiveWeather3(result){              //
+    function displayFiveWeather3(result){              
       const {dt} = result.list[17].clouds; 
       const {icon} = result.list[17].weather[0]; 
       const {temp} = result.list[17].main;                                                            
@@ -245,7 +243,7 @@ function fetchFiveDayForecast4(){
 
     fetchWeatherAgain4()    // Fetches the weather again for the five day forecast          
        
-    function displayFiveWeather4(result){              //
+    function displayFiveWeather4(result){              
       const {dt} = result.list[25].clouds; 
       const {icon} = result.list[25].weather[0]; 
       const {temp} = result.list[25].main;                                                            
@@ -288,7 +286,7 @@ function fetchFiveDayForecast5(){
 
     fetchWeatherAgain5()    // Fetches the weather again for the five day forecast          
        
-    function displayFiveWeather5(result){              //
+    function displayFiveWeather5(result){              
       const {dt} = result.list[33].clouds; 
       const {icon} = result.list[33].weather[0]; 
       const {temp} = result.list[33].main;                                                            
