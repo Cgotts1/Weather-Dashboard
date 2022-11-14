@@ -160,11 +160,11 @@ function fetchFiveDayForecast2(){
     fetchWeatherAgain2()    // Fetches the weather again for the five day forecast          
        
     function displayFiveWeather2(result){              
-      const dt_txt = result.list[8].dt_txt; 
-      const {icon} = result.list[8].weather[0]; 
-      const {temp} = result.list[8].main;                                                            
-      const {humidity} = result.list[8].main;
-      const {speed} = result.list[8].wind;
+      const dt_txt = result.list[7].dt_txt; 
+      const {icon} = result.list[7].weather[0]; 
+      const {temp} = result.list[7].main;                                                            
+      const {humidity} = result.list[7].main;
+      const {speed} = result.list[7].wind;
     
         console.log(result, dt_txt, temp, humidity, speed, icon)
         document.querySelector(".weatherInfo2Date").innerText = "Date: " + dt_txt.split(" ")[0];
@@ -203,11 +203,11 @@ function fetchFiveDayForecast3(){
     fetchWeatherAgain3()    // Fetches the weather again for the five day forecast          
        
     function displayFiveWeather3(result){              
-      const dt_txt = result.list[17].dt_txt; 
-      const {icon} = result.list[17].weather[0]; 
-      const {temp} = result.list[17].main;                                                            
-      const {humidity} = result.list[17].main;
-      const {speed} = result.list[17].wind;
+      const dt_txt = result.list[16].dt_txt; 
+      const {icon} = result.list[16].weather[0]; 
+      const {temp} = result.list[16].main;                                                            
+      const {humidity} = result.list[16].main;
+      const {speed} = result.list[16].wind;
     
         console.log(result, dt_txt, temp, humidity, speed, icon)
         document.querySelector(".weatherInfo3Date").innerText = "Date: " + dt_txt.split(" ")[0];
@@ -246,11 +246,11 @@ function fetchFiveDayForecast4(){
     fetchWeatherAgain4()    // Fetches the weather again for the five day forecast          
        
     function displayFiveWeather4(result){              
-      const dt_txt = result.list[25].dt_txt; 
-      const {icon} = result.list[25].weather[0]; 
-      const {temp} = result.list[25].main;                                                            
-      const {humidity} = result.list[25].main;
-      const {speed} = result.list[25].wind;
+      const dt_txt = result.list[24].dt_txt; 
+      const {icon} = result.list[24].weather[0]; 
+      const {temp} = result.list[24].main;                                                            
+      const {humidity} = result.list[24].main;
+      const {speed} = result.list[24].wind;
     
         console.log(result, dt_txt, temp, humidity, speed, icon)
         document.querySelector(".weatherInfo4Date").innerText = "Date: " + dt_txt.split(" ")[0];
@@ -289,11 +289,11 @@ function fetchFiveDayForecast5(){
     fetchWeatherAgain5()    // Fetches the weather again for the five day forecast          
        
     function displayFiveWeather5(result){              
-      const dt_txt = result.list[33].dt_txt; 
-      const {icon} = result.list[33].weather[0]; 
-      const {temp} = result.list[33].main;                                                            
-      const {humidity} = result.list[33].main;
-      const {speed} = result.list[33].wind;
+      const dt_txt = result.list[32].dt_txt; 
+      const {icon} = result.list[32].weather[0]; 
+      const {temp} = result.list[32].main;                                                            
+      const {humidity} = result.list[32].main;
+      const {speed} = result.list[32].wind;
     
         console.log(result, dt_txt, temp, humidity, speed, icon)
         document.querySelector(".weatherInfo5Date").innerText = "Date: " + dt_txt.split(" ")[0];
