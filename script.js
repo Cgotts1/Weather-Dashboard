@@ -6,6 +6,8 @@ var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
 // let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
 let url = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
 
+
+
 //Sets the date at the top of the page upon loading of the page
 setInterval(function () {
   var time = moment().format("MMMM Do YYYY, h:mm:ss a");
@@ -26,6 +28,41 @@ $(document).ready(function(){
     userCities 
   });
 });
+
+
+// function displayPastCitySearches(){
+//  var recentCities = localStorage.getItem("selectedCity")
+//  if(!recentCities){
+//   recentCities = "[]";
+//  }
+//  recentCities = JSON.parse(recentCities)
+//  for(var i = 0; i < recentCities; i++){}
+  
+// }
+
+
+
+
+
+// let taskList = JSON.parse(localStorage.getItem(storage_key)) || [];
+
+// displayTasks(taskList) 
+
+// let tasksHtml = []
+// for (task of tasks) {
+// tasksHtml.push(
+//     <div class="task-content">
+//         <div class="task" data-id="${task.id}">
+//         <div class="new-task-created">${task.taskNew}</div>
+//         <label class="due-date">${task.taskDate}</label>
+//         <label class="due-time">${task.taskTime}</label>
+//     </div>)
+// }
+
+// return tasksHtml;
+
+
+
 
 // Button to fetch weather
 btn.addEventListener("click", fetchWeather);
@@ -85,23 +122,57 @@ function fetchFiveDayForecast(){
       .catch(error => console.log('error', error));
     }
 
-    fetchWeatherAgain()
+    fetchWeatherAgain()    // Fetches the weather again for the five day forecast          
        
-    function displayFiveWeather(result){
-      const {dt_txt} = result.list[22].clouds; 
+    function displayFiveWeather(result){              //
+      const {dt} = result.list[22].clouds; 
       const {icon} = result.list[22].weather[0]; 
       const {temp} = result.list[22].main;                                                            
       const {humidity} = result.list[22].main;
       const {speed} = result.list[22].wind;
     
-        console.log(result, dt_txt, temp, humidity, speed, icon)
-        document.querySelector(".weatherInfo1Date").innerText = "Date: " + dt_txt;
+        console.log(result, dt, temp, humidity, speed, icon)
+        document.querySelector(".weatherInfo1Date").innerText = "Date: " + dt;
         document.querySelector(".weatherInfo1Icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
         document.querySelector(".weatherInfo1Temp").innerText = "Temperature: " + temp + "°Fahrenheit";
         document.querySelector(".weatherInfo1Humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".weatherInfo1Windspeed").innerText = "Wind Speed: " + speed + " mph";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // `https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`
 
@@ -112,3 +183,35 @@ plugging in your desired format in that placeholder should get you what you want
 moment(data.dt, "X").format("(MM/DD/YYYY)")
 This would be for current weather api, previous message is for 5-day forecast api 
 */
+
+
+
+
+
+
+// var data = [{one:1}, {two:2}, {three:3}]
+// var result = [];
+
+// read all items of data.
+// data.forEach(function(item) {
+
+     // read all keys of item.
+//     Object.keys(item).forEach(function(key) {
+//         result.push(item[key]);
+//     });
+
+// });
+
+
+// const data = [{one:1}, {two:2}, {three:3}]
+// let result = [];
+
+// data.forEach(item => {
+//    result = [...result, ...Object.values(item)];
+// });
+
+
+// var result = [];
+// for(i=0; i < data.length; i++){
+//     result.push(data[i]);
+// }

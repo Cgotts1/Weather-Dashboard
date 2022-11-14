@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Weather Dashboard</title>
   </head>
-  <body>
+  <body onload = "displayPastCitySearches()">
     <header>
       <h1>Weather Dashboard</h1>
     </header>
@@ -51,8 +51,7 @@
 
         <div id="fiveDayWeatherCardBody" class="col-md-2.8 card-body">
           <p class="weatherInfo1Date">Date</p>
-          <!-- <p class="weatherInfo1Icon">Icon</p> -->
-          <img src ="" width = 38 height = 38  class = "weatherInfo1Icon" id ="wicon">
+          <img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Circle-icons-weather.svg/1024px-Circle-icons-weather.svg.png" width = 38 height = 38  class = "weatherInfo1Icon" id ="wicon">
           <p class="weatherInfo1Temp">Temperature:</p>
           <p class="weatherInfo1Humidity">Humidity:</p>
           <p class="weatherInfo1Windspeed">Windspeed:</p>
