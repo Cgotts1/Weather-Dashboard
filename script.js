@@ -8,8 +8,8 @@ var searchNewCityApi4 = document.querySelector("#input-field");  // 4th fiveday
 var searchNewCityApi5 = document.querySelector("#input-field");  // 5th fiveday
 
 var apiKey = "e2529e3d1d19d0acec4d2f3fc131a3ec";
-// let url = "https://api.openweathermap.org/data/2.5/forecast?q=san%20diego&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";
-let url = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";     //five day forecast
+let url1 = "https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&units=imperial&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";      // Current Day Forecast
+let url2 = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec";                         // Five Day Forecast
 
 
 
@@ -50,16 +50,6 @@ for(i = 0; i < cityInputs.length; i++){
     localStorage.setItem("selectedCity", JSON.stringify(cityInputs))
   });
 });
-
-
-// function displayPastCitySearches(){
-//  var recentCities = localStorage.getItem("selectedCity")
-//  recentCities = "[]";
-//  recentCities = JSON.parse(recentCities)
-//  for(var i = 0; i < recentCities; i++){}
-  
-// }
-
 
 
 
@@ -315,64 +305,6 @@ function fetchFiveDayForecast5(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // `https://api.openweathermap.org/data/2.5/weather?q=${citySearchApi}&appid=e2529e3d1d19d0acec4d2f3fc131a3ec`
 
 /* moment(data.list[i].dt_txt, 'YYYY-MM-DD HH:mm:ss').format(<insert desired format here>)
@@ -382,67 +314,3 @@ plugging in your desired format in that placeholder should get you what you want
 moment(data.dt, "X").format("(MM/DD/YYYY)")
 This would be for current weather api, previous message is for 5-day forecast api 
 */
-
-
-
-
-
-
-// var data = [{one:1}, {two:2}, {three:3}]
-// var result = [];
-
-// read all items of data.
-// data.forEach(function(item) {
-
-     // read all keys of item.
-//     Object.keys(item).forEach(function(key) {
-//         result.push(item[key]);
-//     });
-
-// });
-
-
-// const data = [{one:1}, {two:2}, {three:3}]
-// let result = [];
-
-// data.forEach(item => {
-//    result = [...result, ...Object.values(item)];
-// });
-
-
-// var result = [];
-// for(i=0; i < data.length; i++){
-//     result.push(data[i]);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let taskList = JSON.parse(localStorage.getItem(storage_key)) || [];
-
-// displayTasks(taskList) 
-
-// let tasksHtml = []
-// for (task of tasks) {
-// tasksHtml.push(
-//     <div class="task-content">
-//         <div class="task" data-id="${task.id}">
-//         <div class="new-task-created">${task.taskNew}</div>
-//         <label class="due-date">${task.taskDate}</label>
-//         <label class="due-time">${task.taskTime}</label>
-//     </div>)
-// }
-
-// return tasksHtml;
