@@ -11,6 +11,16 @@ body{
     color:white;
 }
 
+.city-and-remove{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .remove-button{
+    color: red;
+    background-color: red;
+} */
+
 
 .btn{
     width:100%;
@@ -81,6 +91,7 @@ li:hover{
     border-radius:3px;
     padding:5px;
     background-color: rgb(179, 218, 255);
+    /* width: 50%; */
 }
 
 li:active{
