@@ -205,6 +205,12 @@ footer {
   }
 }
 
+@media screen AND (max-width: 461px) {
+  .card-body{
+    width: 100%;
+  }
+}
+
 @media screen AND (max-width: 397px) {
   .card-body:hover {
     cursor: zoom-in;
@@ -215,4 +221,7 @@ footer {
     transform: scale(1.1);
     opacity: 1;
   }
+  
 }
+
+
